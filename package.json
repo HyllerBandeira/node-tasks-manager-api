@@ -7,6 +7,10 @@
     "start": "node src/index.js",
     "dev": "env-cmd -f ./config/dev.env nodemon src/index.js "
   },
+  "engines": {
+      "node": "12.2.0",
+      "npm": "6.9.0"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
