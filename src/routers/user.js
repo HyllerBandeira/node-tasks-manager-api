@@ -74,7 +74,7 @@ router.patch('/users/me', auth, async (req, res) => {
     const isValid = updates.every((update) => allowedUpdates.includes(update)); 
 
     if (!isValid) {
-        res.status(400)
+        return res.status(400)
             .send({error: 'Invalid Operation'})
     }
     try {

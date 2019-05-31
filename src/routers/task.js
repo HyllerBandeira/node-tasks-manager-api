@@ -10,6 +10,18 @@ const router = express.Router();
 
 // Create Task
 router.post('/tasks', auth, async (req, res) => {
+    let fields = Object.keys(req.body);
+    const allowedFields = [
+        "description",
+        "completed"
+    ];
+    let isValid = fields.every((field) => allowedFields.includes(field));
+
+    if (!isValid) {
+        return res.status(400)
+            .send({ error: "Invalid arguments"});
+    }
+
     const task = new Task({
         ...req.body,
         owner: req.user._id
